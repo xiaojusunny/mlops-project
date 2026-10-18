@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+.mlflow/
+mlruns/
+*.pkl
+.env
+
+# 原始数据不入库（用 DVC 管理），只提交 .dvc 指针
+data/*.csv
+data/*.parquet
+data/*.json
+data/*.zip

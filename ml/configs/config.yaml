@@ -1,0 +1,5 @@
+# 训练超参数（train.py 会读取这个文件）
+n_estimators: 100
+test_size: 0.2
+random_state: 42
+dataset_version: v1

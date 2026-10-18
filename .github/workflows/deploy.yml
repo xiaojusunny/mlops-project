@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches: [staging, main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy staging
+        if: github.ref == 'refs/heads/staging'
+        run: |
+          # 用 staging 环境的 GitHub Secrets 生成 .env
+          echo "${{ secrets.STAGING_ENV }}" > .env
+          echo "building staging image..."
+          docker build -t mlops-app:staging .
+
+      - name: Deploy production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          # 用生产环境的 GitHub Secrets 生成 .env
+          echo "${{ secrets.PROD_ENV }}" > .env
+          echo "building production image..."
+          docker build -t mlops-app:latest .
