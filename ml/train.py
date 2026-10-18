@@ -8,11 +8,10 @@ import os
 import joblib
 import mlflow
 import yaml
+from data_pipeline import load_data, preprocess
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-
-from data_pipeline import load_data, preprocess
 
 
 def main():
