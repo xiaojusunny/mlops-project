@@ -12,3 +12,11 @@ data/*.csv
 data/*.parquet
 data/*.json
 data/*.zip
+
+# MLflow sqlite 数据库 & DVC 缓存/临时文件（不入库）
+mlflow.db
+*.db
+.dvc/tmp/
+.dvc/cache/
+.pytest_cache/
+pytest-cache-files-*
